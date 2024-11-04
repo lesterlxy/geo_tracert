@@ -18,7 +18,7 @@ namespace TracertDemo {
         }
 
         private async Task<IpApiJson> ipToLocData(IPAddress addr) {
-            const string reqUrl = "http://ip-api.com/json/";
+            const string reqUrl = "http://ip-api.com/json/"; // geolocation API
             const string reqUrlEnd = "?fields=status,message,countryCode,regionName,city,isp,org,asname,reverse";
             WebRequest req = WebRequest.Create(reqUrl + addr.ToString() + reqUrlEnd);
             req.Method = "GET";
@@ -37,7 +37,7 @@ namespace TracertDemo {
                 tracert.Trace();
                 startTrace.Enabled = false;
             } catch (SocketException ex) {
-                _ = MessageBox.Show(ex.Message, "Tracert Demo");
+                _ = MessageBox.Show(ex.Message, "Socket exception");
             }
         }
 
